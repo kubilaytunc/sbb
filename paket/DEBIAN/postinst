@@ -1,0 +1,18 @@
+wget -q -O- http://repo.sbb.gov.tr/msttcorefonts.tar.gz | tar xvf - -C /usr/share/fonts/truetype/
+mkdir /usr/lib64/
+chmod 755 /usr/lib64/
+ln -s /usr/lib/x86_64-linux-gnu/libpcsclite.so.1.0.0 /usr/lib64/libpcsclite.so
+ln -s /usr/lib/x86_64-linux-gnu/libpcsclite.so.1.0.0 /usr/lib64/libpcsclite.so.1
+ln -s /usr/lib/x86_64-linux-gnu/libpcsclite.so.1.0.0 /usr/lib64/libpcsclite.so.1.0.0
+
+echo "NTP=10.10.1.162 10.10.1.163" >> /etc/systemd/timesyncd.conf
+service systemd-timesyncd restart
+
+ln -s /opt/firefox/firefox /usr/bin/
+chmod 777 /usr/lib/mozilla/plugins/libflashplayer.so
+
+ln -s /usr/lib/jvm/oracle-java8-jre-amd64/jre/bin/java /etc/alternatives/java
+ln -s /usr/lib/jvm/oracle-java8-jre-amd64/jre/man/man1/java.1.gz /etc/alternatives/java.1.gz
+
+ln -s /usr/lib/jvm/oracle-java8-jre-amd64/jre/bin/javaws /etc/alternatives/javaws
+ln -s /usr/lib/jvm/oracle-java8-jre-amd64/jre/man/man1/javaws.1.gz /etc/alternatives/javaws.1.gz

@@ -1,0 +1,11 @@
+Package: sbb
+Version: 1.0
+Source: Tübitak Ulakbim
+Section: general
+Priority: optional
+Maintainer: kubilay.tunc@pardus.org.tr
+Architecture: all
+Depends:evolution,evolution-ews,google-chrome-stable,oracle-java8-jre,akis,pm-utils,mesa-utils,acpi,simple-scan,unrar,ssh,ahenk
+Conflicts: openjdk-8-jre
+Replaces: openjdk-8-jre
+Description: Leapvox Mail Server

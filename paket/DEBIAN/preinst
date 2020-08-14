@@ -1,0 +1,20 @@
+cat > /etc/apt/sources.list <<EOF
+deb http://repo.sbb.gov.tr/pardus19 ondokuz main contrib non-free
+deb http://repo.sbb.gov.tr/guvenlik19 ondokuz main contrib non-free
+deb [trusted=yes] http://repo.sbb.gov.tr/sbb 17 main
+deb [arch=amd64] http://repo.sbb.gov.tr/liderahenk-test testing main
+EOF
+wget http://repo.sbb.gov.tr/liderahenk-archive-keyring.asc && sudo apt-key add liderahenk-archive-keyring.asc &&  rm liderahenk-archive-keyring.asc
+
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=SVIDEO-1:d"/' /etc/default/grub
+touch /etc/X11/xorg.conf.d/20-intel.conf
+cat > /etc/X11/xorg.conf.d/20-intel.conf <<EOF
+Section "Device"
+    Identifier "Intel Graphics"   
+    Driver "intel"
+	Option "AccelMethod" "sna"
+	Option "TearFree" "true"
+EndSection
+EOF
+
+
